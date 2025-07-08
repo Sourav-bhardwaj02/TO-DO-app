@@ -83,6 +83,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ for animators everywhere**
 
-[🌟 Star this repo](https://github.com/yourusername/draw-motion) • [🐛 Report Bug](https://github.com/yourusername/draw-motion/issues) • [💡 Request Feature](https://github.com/yourusername/draw-motion/issues)
+[🌟 Star this repo](https://github.com/yourusername/draw-motion) • [🐛 Report Bug](https://github.com/Sourav-bhardwaj02/draw-motion/issues) • [💡 Request Feature](https://github.com/yourusername/draw-motion/issues)
 
 </div>
