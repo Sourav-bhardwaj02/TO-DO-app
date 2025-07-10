@@ -75,7 +75,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🎉 Showcase
 
-*Share your animations with us! Tag us on social media or open an issue to feature your work.*
+*Share your animations with us! Tag us on social media or open an issue to feature your work*
 
 ---
 
