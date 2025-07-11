@@ -1,29 +1,129 @@
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg-body: #556b2f;
+  --bg-intro: #6b8e23;
+  --text-color: #ffffff;
+  --btn-bg: #dcedc8;
+  --btn-text: #3e4e2f;
+  --main-bg: linear-gradient(135deg, #a2d5ac, #f3f9d2);
+  --container-bg: #f1f8e9;
+  --border-color: #cddc39;
+  --task-bg: #ffffff;
+  --task-border: #c5e1a5;
+  --task-timer: #33691e;
+}
 
+body.dark {
+  --bg-body: #1e1e1e;
+  --bg-intro: #2e2e2e;
+  --text-color: #f1f1f1;
+  --btn-bg: #3e4e2f;
+  --btn-text: #dcedc8;
+  --main-bg: linear-gradient(135deg, #303030, #1e1e1e);
+  --container-bg: #2a2a2a;
+  --border-color: #666666;
+  --task-bg: #333333;
+  --task-border: #444444;
+  --task-timer: #8bc34a;
+}
+/* Toggle Switch Wrapper */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-family: 'Fredoka One', cursive;
+  color: var(--text-color);
+}
+
+/* The toggle switch box */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+/* Hide default checkbox */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider background */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+/* Toggle circle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Checked state */
+.theme-switch input:checked + .slider {
+  background-color: #8bc34a;
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Add this for the circle effect */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* ---------- Global ---------- */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Fredoka One', cursive;
-  background: #556b2f;
+  font-family: "Fredoka One", cursive;
+  background: var(--bg-body);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
 }
 
+/* ---------- Intro Screen ---------- */
 #intro-screen {
   height: 100vh;
-  background-color: #6b8e23;
+  background: var(--bg-intro);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-family: 'Fredoka One', cursive;
+  color: var(--text-color);
 }
-
 #intro-screen h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #fffbe7;
+  color: var(--text-color);
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
-
 #intro-screen img {
   width: 250px;
   height: auto;
@@ -31,131 +131,129 @@ body {
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
 #start-btn {
   padding: 12px 30px;
   font-size: 20px;
   border: none;
-  background-color: #dcedc8;
-  color: #3e4e2f;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   border-radius: 10px;
-  font-family: 'Fredoka One', cursive;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, transform 0.3s;
 }
-
 #start-btn:hover {
-  background-color: #c5e1a5;
+  background: var(--btn-bg);
   transform: scale(1.05);
 }
 
+/* ---------- Main App ---------- */
 #main-app {
   display: none;
   padding: 20px;
-  background: linear-gradient(135deg, #a2d5ac, #f3f9d2);
+  background: var(--main-bg);
   min-height: 100vh;
-  color: #2d4a2d;
-  font-family: 'Fredoka One', cursive;
+  color: var(--text-color);
 }
 
+/* ---------- Container ---------- */
 .container {
   max-width: 600px;
   margin: auto;
-  background: #f1f8e9;
+  background: var(--container-bg);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* ---------- Task Input Section ---------- */
 .task-input-section {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
-
 .task-input-section input[type="text"] {
   flex: 2;
   padding: 10px;
-  border: 2px solid #cddc39;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 16px;
+  background: var(--task-bg);
+  color: var(--text-color);
 }
-
 .task-input-section input[type="number"] {
   width: 80px;
   padding: 10px;
-  border: 2px solid #cddc39;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 16px;
+  background: var(--task-bg);
+  color: var(--text-color);
 }
-
 .task-input-section button {
   padding: 10px 20px;
-  background-color: #aed581;
+  background: var(--btn-bg);
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  transition: 0.3s;
+  color: var(--btn-text);
+  transition: background 0.3s;
 }
-
 .task-input-section button:hover {
-  background-color: #9ccc65;
+  background: var(--btn-bg);
 }
 
+/* ---------- Task List ---------- */
 ul {
   list-style: none;
   padding: 0;
 }
-
 li {
-  background: #ffffff;
-  border: 2px solid #c5e1a5;
+  background: var(--task-bg);
+  border: 2px solid var(--task-border);
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background 0.3s, color 0.3s, border 0.3s;
 }
-
 li.completed {
   text-decoration: line-through;
-  color: #999;
+  color: #999999;
 }
 
+/* ---------- Checkbox & Timer ---------- */
 .checkbox {
   margin-right: 10px;
 }
-
 .timer {
   font-size: 14px;
-  color: #33691e;
+  color: var(--task-timer);
   margin-right: 10px;
   min-width: 60px;
 }
+
+/* ---------- Mobile ---------- */
 @media (max-width: 600px) {
-    #intro-screen h1 {
-      font-size: 2rem;
-    }
-
-    .task-input-section {
-      flex-direction: column;
-    }
-
-    .task-input-section input,
-    .task-input-section button {
-      width: 100%;
-    }
-
-    li {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .timer {
-        width: 100%;
-        text-align: right;
-      }
-    }
+  #intro-screen h1 {
+    font-size: 2rem;
+  }
+  .task-input-section {
+    flex-direction: column;
+  }
+  .task-input-section input,
+  .task-input-section button {
+    width: 100%;
+  }
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timer {
+    width: 100%;
+    text-align: right;
+  }
+}
